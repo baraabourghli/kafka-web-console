@@ -1,7 +1,7 @@
 # --- !Ups
 
 ALTER TABLE zookeepers DROP PRIMARY KEY;
-ALTER TABLE zookeepers ADD COLUMN id LONG NOT NULL AUTO_INCREMENT;
+ALTER TABLE zookeepers ADD COLUMN id BIGINT NOT NULL AUTO_INCREMENT;
 ALTER TABLE zookeepers ADD PRIMARY KEY (id);
 ALTER TABLE zookeepers ALTER COLUMN name SET NOT NULL;
 ALTER TABLE zookeepers ALTER COLUMN host SET NOT NULL;
@@ -11,21 +11,21 @@ ALTER TABLE zookeepers ALTER COLUMN groupId SET NOT NULL;
 ALTER TABLE zookeepers ADD UNIQUE (name);
 
 CREATE TABLE offsetHistory (
-  id LONG AUTO_INCREMENT PRIMARY KEY,
-  zookeeperId LONG,
+  id BIGINT AUTO_INCREMENT PRIMARY KEY,
+  zookeeperId BIGINT,
   topic VARCHAR(255),
   FOREIGN KEY (zookeeperId) REFERENCES zookeepers(id),
   UNIQUE (zookeeperId, topic)
 );
 
 CREATE TABLE offsetPoints (
-  id LONG AUTO_INCREMENT PRIMARY KEY,
+  id BIGINT AUTO_INCREMENT PRIMARY KEY,
   consumerGroup VARCHAR(255),
   timestamp TIMESTAMP,
-  offsetHistoryId LONG,
+  offsetHistoryId BIGINT,
   partition INT,
-  offset LONG,
-  logSize LONG,
+  offset BIGINT,
+  logSize BIGINT,
   FOREIGN KEY (offsetHistoryId) REFERENCES offsetHistory(id)
 );
 

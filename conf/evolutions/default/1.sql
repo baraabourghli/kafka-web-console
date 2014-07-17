@@ -4,19 +4,19 @@ CREATE TABLE zookeepers (
   name VARCHAR,
   host VARCHAR,
   port INT,
-  statusId LONG,
-  groupId LONG,
+  statusId BIGINT,
+  groupId BIGINT,
   PRIMARY KEY (name)
 );
 
 CREATE TABLE groups (
-  id LONG,
+  id BIGINT,
   name VARCHAR,
   PRIMARY KEY (id)
 );
 
 CREATE TABLE status (
-  id LONG,
+  id BIGINT,
   name VARCHAR,
   PRIMARY KEY (id)
 );
