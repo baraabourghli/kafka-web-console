@@ -1,23 +1,23 @@
 # --- !Ups
 
 CREATE TABLE zookeepers (
-  name VARCHAR,
-  host VARCHAR,
-  port INT,
-  statusId BIGINT,
-  groupId BIGINT,
+  name VARCHAR(1),
+  host VARCHAR(1),
+  port DECIMAL(38),
+  statusId TEXT,
+  groupId TEXT,
   PRIMARY KEY (name)
 );
 
 CREATE TABLE groups (
-  id BIGINT,
-  name VARCHAR,
+  id TEXT,
+  name VARCHAR(1),
   PRIMARY KEY (id)
 );
 
 CREATE TABLE status (
-  id BIGINT,
-  name VARCHAR,
+  id TEXT,
+  name VARCHAR(1),
   PRIMARY KEY (id)
 );
 
